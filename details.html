@@ -68,6 +68,9 @@
         console.log("From web", data);
         // alert(data.keterangan);
         keteranganArea.append(data.keterangan);
+
+        localStorage.setItem(data.id,JSON.stringify(data));
+
       }).catch(function (){
         window.location.href = 'offline.html';
       });

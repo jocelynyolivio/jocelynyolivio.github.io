@@ -78,7 +78,7 @@ fetch(url)
   });
 
 if ('indexedDB' in window) {
-  readAllData('posts')
+  readAllData('fitness')
     .then(function(data) {
       if (!networkDataReceived) {
         console.log('From cache', data);
