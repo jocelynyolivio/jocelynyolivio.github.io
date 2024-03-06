@@ -35,9 +35,9 @@
 </html>
 
 <script>
-function back(){
-    window.location.href = 'index.html';
-}
+  function back() {
+    window.location.href = "index.html";
+  }
 
   function load() {
     const urlParams = new URLSearchParams(location.search);
@@ -57,25 +57,49 @@ function back(){
 
     var keteranganArea = document.querySelector("#keterangan");
 
-    if (!localStorage.getItem(id)) {
-      fetch(url)
-        .then(function (res) {
-          return res.json();
-        })
-        .then(function (data) {
-          networkDataReceived = true;
-          console.log("From web", data);
-          // alert(data.keterangan);
-          keteranganArea.append(data.keterangan);
+    //     if (!localStorage.getItem(id)) {
+    //       fetch(url)
+    //         .then(function (res) {
+    //           return res.json();
+    //         })
+    //         .then(function (data) {
+    //           networkDataReceived = true;
+    //           console.log("From web", data);
+    //           // alert(data.keterangan);
+    //           keteranganArea.append(data.keterangan);
 
-          localStorage.setItem(data.id, JSON.stringify(data));
-        })
-        .catch(function () {
-          window.location.href = "offline.html";
-        });
-    }else{
-        var data = JSON.parse(localStorage.getItem(id));
+    //           localStorage.setItem(data.id, JSON.stringify(data));
+    //         })
+    //         .catch(function () {
+    //           window.location.href = "offline.html";
+    //         });
+    //     }else{
+    //         var data = JSON.parse(localStorage.getItem(id));
+    //         keteranganArea.append(data.keterangan);
+    //     }
+    //   }
+
+    //intine ini network then cache --> liat nde fb sek ada ga trs lek gada bru cek cache e 
+    // trs lek gada lg bru offline
+    fetch(url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        networkDataReceived = true;
+        console.log("From web", data);
+        // alert(data.keterangan);
         keteranganArea.append(data.keterangan);
-    }
+
+        localStorage.setItem(data.id, JSON.stringify(data));
+      })
+      .catch(function () {
+        if (!localStorage.getItem(id)) {
+          var data = JSON.parse(localStorage.getItem(id));
+          keteranganArea.append(data.keterangan);
+        } else {
+          window.location.href = "offline.html";
+        }
+      });
   }
 </script>

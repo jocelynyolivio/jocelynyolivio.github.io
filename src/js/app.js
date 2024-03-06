@@ -22,3 +22,12 @@ window.addEventListener('beforeinstallprompt', function(event) {
   deferredPrompt = event;
   return false;
 });
+
+function install(){
+  if (!deferredPrompt){
+    return;
+  }
+  const result = deferredPrompt.prompt();
+  deferredPrompt = null;
+
+}
