@@ -28,24 +28,22 @@
   <body onload="load()">
     <!-- <h2 id='keterangan'></h2> -->
     <div class="detailbody">
-        <i class="fa-solid fa-arrow-left"></i>
-        <div class="judul"></div>
-        <img src="" alt="">
-        <div id="keterangan"></div>
+      <i class="fa-solid fa-arrow-left" onclick="back()"></i>
+      <div id="keterangan"></div>
     </div>
-
-
-
-    
   </body>
 </html>
 
 <script>
+function back(){
+    window.location.href = 'index.html';
+}
+
   function load() {
     const urlParams = new URLSearchParams(location.search);
     console.log(urlParams.get("id"));
     var id = urlParams.get("id");
-    alert(id);
+    // alert(id);
     // localStorage.fitness = id;
     // alert(localStorage.fitness);
     // var myProp = localStorage.fitness;
@@ -59,20 +57,25 @@
 
     var keteranganArea = document.querySelector("#keterangan");
 
-    fetch(url)
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (data) {
-        networkDataReceived = true;
-        console.log("From web", data);
-        // alert(data.keterangan);
+    if (!localStorage.getItem(id)) {
+      fetch(url)
+        .then(function (res) {
+          return res.json();
+        })
+        .then(function (data) {
+          networkDataReceived = true;
+          console.log("From web", data);
+          // alert(data.keterangan);
+          keteranganArea.append(data.keterangan);
+
+          localStorage.setItem(data.id, JSON.stringify(data));
+        })
+        .catch(function () {
+          window.location.href = "offline.html";
+        });
+    }else{
+        var data = JSON.parse(localStorage.getItem(id));
         keteranganArea.append(data.keterangan);
-
-        localStorage.setItem(data.id,JSON.stringify(data));
-
-      }).catch(function (){
-        window.location.href = 'offline.html';
-      });
+    }
   }
 </script>

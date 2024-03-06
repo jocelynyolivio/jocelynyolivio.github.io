@@ -30,6 +30,10 @@ function createCard(data) {
   cardWrapper.appendChild(cardName);
   componentHandler.upgradeElement(cardWrapper);
   sharedMomentsArea.appendChild(cardWrapper);
+
+  // cardWrapper.addEventListener('click',function() {
+  //   cardClicked(data.id)
+  // })
 }
 
 function loadDetail(){
@@ -60,6 +64,47 @@ function updateUI(data) {
   }
 }
 
+// function cardClicked(id) {
+//   const urlParams = new URLSearchParams(location.search);
+//     console.log(urlParams.get("id"));
+//     var id = urlParams.get("id");
+//     alert(id);
+//     // localStorage.fitness = id;
+//     // alert(localStorage.fitness);
+//     // var myProp = localStorage.fitness;
+//     // alert(myProp);
+//     var networkDataReceived = false;
+
+//     var url =
+//       "https://yoliambw-42086-default-rtdb.asia-southeast1.firebasedatabase.app/fitness/" +
+//       id +
+//       ".json";
+
+//     var keteranganArea = document.querySelector("#keterangan");
+
+//     if (!localStorage.getItem(id)) {
+//     fetch(url)
+//       .then(function (res) {
+//         return res.json();
+//       })
+//       .then(function (data) {
+//         networkDataReceived = true;
+//         localStorage.setItem('now', JSON.stringify(data));
+//         console.log(data);
+//         localStorage.setItem(id, JSON.stringify(data));
+        
+//         window.location.href = '/details.html'; 
+//       })
+//       .catch(function (error) {
+//         console.error('Fetch error:', error);
+//         window.location.href = '/offline.html'; 
+//       });
+//     } else {
+//         localStorage.setItem('now', localStorage.getItem(id));
+//         window.location.href = '/details.html';
+//     }
+// }
+
 var url = 'https://yoliambw-42086-default-rtdb.asia-southeast1.firebasedatabase.app/fitness.json';
 var networkDataReceived = false;
 
@@ -73,6 +118,8 @@ fetch(url)
     var dataArray = [];
     for (var key in data) {
       dataArray.push(data[key]);
+      // localStorage.
+      // console.log(key);
     }
     updateUI(dataArray);
   });
