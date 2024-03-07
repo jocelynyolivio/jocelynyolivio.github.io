@@ -29,5 +29,4 @@ function install(){
   }
   const result = deferredPrompt.prompt();
   deferredPrompt = null;
-
 }

@@ -4,10 +4,11 @@ var sharedMomentsArea = document.querySelector('#shared-moments');
 function createCard(data) {
   var cardWrapper = document.createElement('a');
   cardWrapper.href = 'details.html?id=' + data.id;
-  cardWrapper.className = 'shared-moment-card mdl-card mdl-shadow--2dp';
+  cardWrapper.className = 'shared-moment-card mdl-card mdl-shadow--2dp card';
+  cardWrapper.style.textDecoration = 'none';
 
   var cardImage = document.createElement('div');
-  cardImage.className = 'mdl-card__title';
+  cardImage.className = 'card-title';
   cardImage.style.backgroundImage = 'url(' + data.image + ')';
   cardImage.style.backgroundSize = 'cover';
   cardImage.style.height = '180px';
@@ -27,6 +28,8 @@ function createCard(data) {
   cardName.className = 'mdl-card__supporting-text h5';
   cardName.textContent = data.id;
   cardName.style.textAlign = 'center';
+  cardName.style.textTransform = 'uppercase';
+  // cardName.style.color = 'red';
   cardWrapper.appendChild(cardName);
   componentHandler.upgradeElement(cardWrapper);
   sharedMomentsArea.appendChild(cardWrapper);
