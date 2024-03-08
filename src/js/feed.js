@@ -5,30 +5,27 @@ function createCard(data) {
   var cardWrapper = document.createElement('a');
   cardWrapper.href = 'details.html?id=' + data.id;
   cardWrapper.className = 'shared-moment-card mdl-card mdl-shadow--2dp card';
-  cardWrapper.style.textDecoration = 'none';
+  cardWrapper.style.borderRadius = '20px';
 
   var cardImage = document.createElement('div');
   cardImage.className = 'card-title';
   cardImage.style.backgroundImage = 'url(' + data.image + ')';
-  cardImage.style.backgroundSize = 'cover';
-  cardImage.style.height = '180px';
   cardWrapper.appendChild(cardImage);
 
-  var cardIcon = document.createElement('div');
-  cardIcon.className = data.icon;
-  // cardIcon.style.backgroundImage = 'url(' + data.icon + ')';
-  cardIcon.style.backgroundSize = '10% 10%';
-  cardIcon.style.height = '10px';
-  cardIcon.style.position = 'absolute';
-  cardIcon.style.bottom = '25px';
-  cardIcon.style.right = '20px';
-  cardWrapper.appendChild(cardIcon);
+  // var cardIcon = document.createElement('div');
+  // cardIcon.className = data.icon;
+  // cardIcon.id = 'card-icon';
+  // cardIcon.style.backgroundSize = '10% 10%';
+  // cardIcon.style.height = '10px';
+  // cardIcon.style.position = 'absolute';
+  // cardIcon.style.bottom = '25px';
+  // cardIcon.style.right = '20px';
+  // cardWrapper.appendChild(cardIcon);
   
   var cardName = document.createElement('div');
   cardName.className = 'mdl-card__supporting-text h5';
   cardName.textContent = data.id;
-  cardName.style.textAlign = 'center';
-  cardName.style.textTransform = 'uppercase';
+  
   // cardName.style.color = 'red';
   cardWrapper.appendChild(cardName);
   componentHandler.upgradeElement(cardWrapper);
@@ -37,10 +34,6 @@ function createCard(data) {
   // cardWrapper.addEventListener('click',function() {
   //   cardClicked(data.id)
   // })
-}
-
-function loadDetail(){
-
 }
 
 function onSaveButtonClicked(event) {
@@ -66,6 +59,7 @@ function updateUI(data) {
     createCard(data[i]);
   }
 }
+
 
 // function cardClicked(id) {
 //   const urlParams = new URLSearchParams(location.search);
