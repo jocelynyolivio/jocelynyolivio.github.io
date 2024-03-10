@@ -93,18 +93,19 @@
               networkDataReceived = true;
               console.log("From web", data);
               // alert(data.keterangan);
+              imageArea.src = data.image;
               keteranganArea.append(data.keterangan);
               judulArea.append(data.id);
-              imageArea.src = data.image;
 
               localStorage.setItem(data.id, JSON.stringify(data));
-            })
+            }) 
             .catch(function () {
               window.location.href = "offline.html";
             });
         }else{
             var data = JSON.parse(localStorage.getItem(id));
+            imageArea.src = data.image;
             keteranganArea.append(data.keterangan);
-        }
+            judulArea.append(data.id);        }
       }
 </script>
