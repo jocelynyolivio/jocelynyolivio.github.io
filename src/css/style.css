@@ -8,10 +8,11 @@ body {
     display: flex;
     flex-wrap: nowrap; /* Mencegah wrapping ke baris baru */
     overflow-x: auto; /* Menambahkan scrollbar horizontal jika terlalu banyak kartu */
-    border: 2px solid black;
-    margin-top : 5vh;
+    border: 2px solid bisque;
+    margin-top: 5vh;
     padding: 2%;
     justify-content: space-between;
+    border-radius: 20px;
 }
 
 .card {
@@ -132,4 +133,9 @@ body {
 #image{
     width: 60vw;
     /* height: 30vh; */
+    border-radius: 20px;
+}
+
+.fa-solid{
+    font-size: 5vh !important;
 }
