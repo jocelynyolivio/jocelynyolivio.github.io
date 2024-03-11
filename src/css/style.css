@@ -4,17 +4,6 @@ body {
     background-color: #1e2a36 !important;
 }
 
-.container {
-    display: flex;
-    flex-wrap: nowrap; /* Mencegah wrapping ke baris baru */
-    overflow-x: auto; /* Menambahkan scrollbar horizontal jika terlalu banyak kartu */
-    border: 2px solid bisque;
-    margin-top: 5vh;
-    padding: 2%;
-    justify-content: space-between;
-    border-radius: 20px;
-}
-
 .card {
     flex: 0 0 auto;
     width: 20rem;
@@ -124,6 +113,10 @@ body {
     flex-direction: column; /* Menentukan tata letak vertikal */
     align-items: center; /* Pusatkan konten secara horizontal */
     justify-content: center; 
+    display: flex;
+    flex-wrap: nowrap; /* Mencegah wrapping ke baris baru */
+    overflow-x: auto; /* Menambahkan scrollbar horizontal jika terlalu banyak kartu */
+    justify-content: space-between;
   }
   .container i{
     font-size: 3vw;
@@ -137,5 +130,13 @@ body {
 }
 
 .fa-solid{
-    font-size: 5vh !important;
+    font-size: 20px !important;
+    text-align: start !important;
+}
+
+.body-detail{
+    border: 2px solid bisque;
+    margin-top: 5vh;
+    padding: 2%;
+    border-radius: 20px;
 }

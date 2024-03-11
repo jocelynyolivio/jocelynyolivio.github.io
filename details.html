@@ -33,9 +33,11 @@
   <body onload="load()">
     <div class="container mt-5">
       <i class="fa-solid fa-arrow-left" onclick="back()"></i>
-      <div id="judul" ></div>
-      <img src="" id="image" alt="Gambar Fitness">
-      <div id="keterangan"></div>
+      <div class="body-detail">
+        <div id="judul" ></div>
+        <img src="" id="image" alt="Gambar Fitness">
+        <div id="keterangan"></div>
+      </div>
     </div>
   </body>
 </html>
@@ -59,31 +61,6 @@
     var keteranganArea = document.querySelector("#keterangan");
     var judulArea = document.querySelector('#judul');
     var imageArea = document.querySelector('#image')
-    
-  // network then cache --> liat nde fb sek ada ga trs lek gada bru cek cache e 
-  // trs lek gada lg bru offline
-  //   fetch(url)
-  //     .then(function (res) {
-  //       return res.json();
-  //     })
-  //     .then(function (data) {
-  //       networkDataReceived = true;
-  //       console.log("From web", data);
-  //       localStorage.setItem(data.id, JSON.stringify(data));
-  //       // alert(data.keterangan);
-  //       keteranganArea.append(data.keterangan);
-  //       judulArea.append(data.id);
-  //       imageArea.src = data.image;
-  //     })
-  //     .catch(function () {
-  //       if (!localStorage.getItem(id)) {
-  //         var data = JSON.parse(localStorage.getItem(id));
-  //         keteranganArea.append(data.keterangan);
-  //       } else {
-  //         // window.location.href = "offline.html";
-  //       }
-  //     });
-  // }
 
           if (!localStorage.getItem(id)) {
           fetch(url)
@@ -109,4 +86,29 @@
             keteranganArea.append(data.keterangan);
             judulArea.append(data.id);        }
       }
+
+  // network then cache --> liat nde fb sek ada ga trs lek gada bru cek cache e 
+  // trs lek gada lg bru offline
+  //   fetch(url)
+  //     .then(function (res) {
+  //       return res.json();
+  //     })
+  //     .then(function (data) {
+  //       networkDataReceived = true;
+  //       console.log("From web", data);
+  //       localStorage.setItem(data.id, JSON.stringify(data));
+  //       // alert(data.keterangan);
+  //       keteranganArea.append(data.keterangan);
+  //       judulArea.append(data.id);
+  //       imageArea.src = data.image;
+  //     })
+  //     .catch(function () {
+  //       if (!localStorage.getItem(id)) {
+  //         var data = JSON.parse(localStorage.getItem(id));
+  //         keteranganArea.append(data.keterangan);
+  //       } else {
+  //         // window.location.href = "offline.html";
+  //       }
+  //     });
+  // }
 </script>
