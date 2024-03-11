@@ -6,6 +6,7 @@ function createCard(data) {
   cardWrapper.href = 'details.html?id=' + data.id;
   cardWrapper.className = 'shared-moment-card mdl-card mdl-shadow--2dp card';
   cardWrapper.style.borderRadius = '20px';
+  cardWrapper.style.margin = '4vh';
 
   var cardImage = document.createElement('div');
   cardImage.className = 'card-title';
